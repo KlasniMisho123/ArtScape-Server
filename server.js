@@ -23,3 +23,7 @@ app.get("/", async (req, res) => {
     res.send("Server is running");
     
 });
+
+app.listen(port, () => {
+    console.log(`App is Running on: http://localhost:${port}`);
+});
