@@ -1,7 +1,9 @@
-import axios from "axios";
 import express from "express";
+import axios from "axios";
 import cors from "cors";
-// Server side
+import bodyParser from "body-parser";
+import nodemailer from "nodemailer";
+import dotenv from 'dotenv';
 
 const app = express()
 const port = 5000
