@@ -44,6 +44,11 @@ app.get("/", async (req, res) => {
 
 app.post("/sendmail", async (req,res) => {
     console.log("sendmail endpoint")
+    try {
+
+    } catch(err) {
+        console.log("ERR: ", err);
+    }
 })
 
 app.listen(port, () => {
