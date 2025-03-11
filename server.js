@@ -46,6 +46,15 @@ app.post("/sendemail", async (req,res) => {
     const {newEmail, verificationCode } = req.body
     console.log("Retrivied Data : ",newEmail ,verificationCode)
     try {
+        const mailOptions = {
+            from: {
+                name: `ArtScape Verification`,
+                address: "moodcheck12@gmail.com"
+            },
+            to: newEmail,
+            subject: "Verification Code",
+            text: `Your Verification Code: ${verificationCode}`,
+        };
 
         res.status(200).json({ message: "Email sent successfully" });
     } catch(err) {
