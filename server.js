@@ -42,12 +42,15 @@ app.get("/", async (req, res) => {
     res.send("Server is running");
 });
 
-app.post("/sendmail", async (req,res) => {
-    console.log("sendmail endpoint")
+app.post("/sendemail", async (req,res) => {
+    const {newEmail, verificationCode } = req.body
+    console.log("Retrivied Data : ",newEmail ,verificationCode)
     try {
 
+        res.status(200).json({ message: "Email sent successfully" });
     } catch(err) {
         console.log("ERR: ", err);
+        res.status(500).json({ error: "Failed to send email." });
     }
 })
 
