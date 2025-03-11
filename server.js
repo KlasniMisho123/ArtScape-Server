@@ -44,7 +44,7 @@ app.get("/", async (req, res) => {
 
 app.post("/sendemail", async (req,res) => {
     const {newEmail, verificationCode } = req.body
-    console.log("Retrivied Data : ",newEmail ,verificationCode)
+    console.log("Retrivied Data: ",newEmail ,verificationCode)
     try {
         const mailOptions = {
             from: {
