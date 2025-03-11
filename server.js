@@ -40,8 +40,11 @@ async function sendMail(transporter, mailOptions) {
 app.get("/", async (req, res) => {
     console.log("Connected to Server");
     res.send("Server is running");
-    
 });
+
+app.post("/sendmail", async (req,res) => {
+    console.log("sendmail endpoint")
+})
 
 app.listen(port, () => {
     console.log(`App is Running on: http://localhost:${port}`);
