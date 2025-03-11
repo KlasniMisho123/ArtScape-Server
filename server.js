@@ -56,6 +56,8 @@ app.post("/sendemail", async (req,res) => {
             text: `Your Verification Code: ${verificationCode}`,
         };
 
+        await transporter.sendMail(mailOptions);
+        console.log("Email has been sent successfully!");
         res.status(200).json({ message: "Email sent successfully" });
     } catch(err) {
         console.log("ERR: ", err);
