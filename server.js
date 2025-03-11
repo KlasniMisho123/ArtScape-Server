@@ -28,6 +28,13 @@ const transporter = nodemailer.createTransport({
     },
 });
 
+async function sendMail(transporter, mailOptions) {
+    try {
+
+    } catch(err) {
+        console.error('sendMail Error: ', err)
+    }
+}
 
 app.get("/", async (req, res) => {
     console.log("Connected to Server");
