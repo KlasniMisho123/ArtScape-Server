@@ -14,8 +14,19 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions))
-// app.use(bodyParser.json()); 
-// dotenv.config();
+app.use(bodyParser.json()); 
+dotenv.config();
+
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
+    auth: {
+        user: process.env.USER,
+        pass: process.env.APP_PASSWORD,
+    },
+});
 
 
 app.get("/", async (req, res) => {
