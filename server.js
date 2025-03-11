@@ -30,7 +30,8 @@ const transporter = nodemailer.createTransport({
 
 async function sendMail(transporter, mailOptions) {
     try {
-
+        await transporter.sendMail(mailOptions)
+        console.log("Email has been sent succesfully!")
     } catch(err) {
         console.error('sendMail Error: ', err)
     }
