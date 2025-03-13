@@ -44,7 +44,6 @@ app.get("/", async (req, res) => {
 
 app.post("/sendemail", async (req,res) => {
     const {newEmail, verificationCode } = req.body
-    console.log("Retrivied Data: ",newEmail ,verificationCode)
     try {
         const mailOptions = {
             from: {
@@ -57,10 +56,8 @@ app.post("/sendemail", async (req,res) => {
         };
 
         await transporter.sendMail(mailOptions);
-        console.log("Email has been sent successfully!");
         res.status(200).json({ message: "Email sent successfully" });
     } catch(err) {
-        console.log("ERR: ", err);
         res.status(500).json({ error: "Failed to send email." });
     }
 })
