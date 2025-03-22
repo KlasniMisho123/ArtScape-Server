@@ -63,6 +63,8 @@ app.post("/sendemail", async (req,res) => {
 })
 
 app.post("/sendphone", async (req, res) => {
+    // const { phoneNumber } = req.body
+    // console.log("Sending Verification Code to Phone", phoneNumber)
     console.log("Sending Verification Code to Phone")
 })
 
