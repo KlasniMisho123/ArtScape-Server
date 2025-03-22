@@ -65,8 +65,8 @@ app.post("/sendemail", async (req,res) => {
 app.post("/sendphone", async (req, res) => {
     const { phonePrefix, newPhoneNumber } = req.body
     try {
-        console.log("newPhoneNumber: ",newPhoneNumber)
         console.log("phonePrefix: ",phonePrefix)
+        console.log("newPhoneNumber: ",newPhoneNumber)
     } catch(err) {
         console.log("Something went wrong!")
     }
