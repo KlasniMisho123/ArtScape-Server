@@ -66,7 +66,6 @@ app.post("/sendphone", async (req, res) => {
     const { phonePrefix, newPhoneNumber, generatedVerificationCode} = req.body
     try {
         // setup sending text on phone
-        console.log("generatedVerificationCode: ",generatedVerificationCode)
     } catch(err) {
         console.log("Something went wrong!")
     }
