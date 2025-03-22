@@ -62,6 +62,10 @@ app.post("/sendemail", async (req,res) => {
     }
 })
 
+app.post("/sendphone", async (req, res) => {
+    console.log("Sending Verification Code to Phone")
+})
+
 app.listen(port, () => {
     console.log(`App is Running on: http://localhost:${port}`);
 });
