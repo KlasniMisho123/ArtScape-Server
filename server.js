@@ -63,12 +63,12 @@ app.post("/sendemail", async (req,res) => {
 })
 
 app.post("/sendphone", async (req, res) => {
-    const { fullNumber } = req.body
+    const { phonePrefix, newPhoneNumber } = req.body
     try {
-        console.log("Sending Verification Code to Phone", fullNumber)
-        // res.status(200).send({ message: 'Phone number received successfully!' });
+        console.log("newPhoneNumber: ",newPhoneNumber)
+        console.log("phonePrefix: ",phonePrefix)
     } catch(err) {
-        res.status(500).send({ message: 'Something went wrong!' });
+        console.log("Something went wrong!")
     }
 })
 
