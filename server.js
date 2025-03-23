@@ -67,7 +67,8 @@ app.post("/sendphone", async (req, res) => {
     // setup sending text on phone - Twilio -? limitations
     // sending code on email
     const fullNumber = phonePrefix + newPhoneNumber
-    console.log(userEmail,fullNumber, generatedVerificationCode)
+    // console.log(userEmail,fullNumber, "verificationCode: ", verificationCode)
+    console.log("verificationCode: ", verificationCode)
     try {
         const mailOptions = {
             from: {
