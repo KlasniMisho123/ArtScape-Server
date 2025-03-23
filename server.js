@@ -64,8 +64,8 @@ app.post("/sendemail", async (req,res) => {
 
 app.post("/sendphone", async (req, res) => {
     const { phonePrefix, newPhoneNumber, userEmail, generatedVerificationCode} = req.body
+    // setup sending text on phone - Twilio -? limitations
     // sending code on email
-    // setup sending text on phone - Twilio
     const fullNumber = phonePrefix + newPhoneNumber
     try {
         const mailOptions = {
@@ -75,7 +75,7 @@ app.post("/sendphone", async (req, res) => {
             },
             to: userEmail,
             subject: "Verification Code",
-            text: `Your Verification Code is ${verificationCode} to set new ${fullNumber}`,
+            text: `Your verification code is ${verificationCode}. Use this code to update your phone number to: ${fullNumber}.`,
         };
 
         await transporter.sendMail(mailOptions);
