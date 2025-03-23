@@ -77,7 +77,7 @@ app.post("/sendphone", async (req, res) => {
             },
             to: userEmail,
             subject: "Verification Code",
-            text: `Your verification code is ${verificationCode}. Use this code to update your phone number to: ${fullNumber}.`,
+            text: `Use this code to update your phone number to: ${fullNumber}. Your verification code is: ${verificationCode}.`,
         };
 
         await transporter.sendMail(mailOptions);
