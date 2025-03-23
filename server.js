@@ -63,9 +63,23 @@ app.post("/sendemail", async (req,res) => {
 })
 
 app.post("/sendphone", async (req, res) => {
-    const { phonePrefix, newPhoneNumber, generatedVerificationCode} = req.body
+    const { phonePrefix, newPhoneNumber, userEmail, generatedVerificationCode} = req.body
+    // sending code on email
+    // setup sending text on phone - Twilio
+    const fullNumber = phonePrefix + newPhoneNumber
     try {
-        // setup sending text on phone
+        const mailOptions = {
+            from: {
+                name: `ArtScape Verification`,
+                address: "moodcheck12@gmail.com"
+            },
+            to: userEmail,
+            subject: "Verification Code",
+            text: `Your Verification Code is ${verificationCode} to set new ${fullNumber}`,
+        };
+
+        await transporter.sendMail(mailOptions);
+        res.status(200).json({ message: `Email sent successfully: ${userEmail}` });
     } catch(err) {
         console.log("Something went wrong!")
     }
